@@ -1,0 +1,1 @@
+{"saveImage":1,"imageCheck":1,"cameraNum":1,"Token":"admin-token","triggerCode":"8888","imgsPath":"F:\\CodeDir\\Electron\\test","sidebarStatus":0}

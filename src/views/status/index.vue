@@ -6,12 +6,12 @@
           <span>通讯IO模块状态</span>
         </div>
         <div style="margin-bottom:50px;">
-          <el-col :span="24" >
+          <el-col :span="24">
             <div style="display:inline-block;">
               <label class="radio-label">连接状态</label>
               <el-radio-group value="sr_port_status" text-color="red" fill="red">
                 <el-radio :label="true" border>
-                  {{sr_port_status ? "连接成功" : "连接失败" }}
+                  {{ sr_port_status ? "连接成功" : "连接失败" }}
                 </el-radio>
               </el-radio-group>
             </div>
@@ -26,33 +26,50 @@
         </div>
         <div style="margin-bottom:50px;">
           <el-col :span="4" class="text-center">
-            <router-link class="pan-btn blue-btn" to="/documentation/index">
-              Documentation
+            <router-link class="pan-btn blue-btn" to="/status/status">
+              Test
             </router-link>
           </el-col>
           <el-col :span="4" class="text-center">
-            <router-link class="pan-btn light-blue-btn" to="/icon/index">
-              Icons
+            <router-link class="pan-btn light-blue-btn" to="/status/status">
+              Test
             </router-link>
           </el-col>
           <el-col :span="4" class="text-center">
-            <router-link class="pan-btn pink-btn" to="/excel/export-excel">
-              Excel
+            <router-link class="pan-btn pink-btn" to="/status/status">
+              Test
             </router-link>
           </el-col>
           <el-col :span="4" class="text-center">
-            <router-link class="pan-btn green-btn" to="/table/complex-table">
-              Table
+            <router-link class="pan-btn green-btn" to="/status/status">
+              Test
             </router-link>
           </el-col>
           <el-col :span="4" class="text-center">
-            <router-link class="pan-btn tiffany-btn" to="/example/create">
-              Form
+            <router-link class="pan-btn tiffany-btn" to="/status/status">
+              Test
             </router-link>
           </el-col>
           <el-col :span="4" class="text-center">
-            <router-link class="pan-btn yellow-btn" to="/theme/index">
-              Theme
+            <router-link class="pan-btn yellow-btn" to="/status/status">
+              Test
+            </router-link>
+          </el-col>
+        </div>
+      </el-card>
+    </el-row>
+    <el-row class="sr_status">
+      <el-card class="box-card">
+        <div slot="header" class="clearfix">
+          <span>提示</span>
+        </div>
+        <div style="margin-bottom:50px;">
+          <el-col :span="24">
+            <div style="display:inline-block; margin-right: 20px;">
+              <h3>功能开发中...</h3>
+            </div>
+            <router-link class="pan-btn green-btn" to="/">
+              返回主画面
             </router-link>
           </el-col>
         </div>
@@ -62,24 +79,24 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex'
 
 export default {
-  name: "Home",
+  name: 'Status',
   components: {},
   data() {
     return {
-    };
+    }
   },
   computed: {
-    ...mapGetters(["sr_port"]),
+    ...mapGetters(['sr_port']),
     sr_port_status() {
       // if (!this.sr_port) return false;
-      return true;
+      return true
     }
   },
   created() {}
-};
+}
 </script>
 
 <style lang="scss" scoped>

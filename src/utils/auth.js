@@ -1,15 +1,15 @@
-import Cookies from 'js-cookie'
+import Config from './config'
 
-const TokenKey = 'Admin-Token'
+const TokenKey = 'Token'
 
 export function getToken() {
-  return Cookies.get(TokenKey)
+  return Config.get(TokenKey)
 }
 
 export function setToken(token) {
-  return Cookies.set(TokenKey, token)
+  return Config.set(TokenKey, token)
 }
 
 export function removeToken() {
-  return Cookies.remove(TokenKey)
+  return Config.remove(TokenKey)
 }

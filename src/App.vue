@@ -9,12 +9,12 @@
 // const SerialPort = window.require('electron').remote.require('serialport')
 // const cv = window.require('opencv')
 
-import { mapActions, mapGetters } from "vuex";
+// import { mapActions, mapGetters } from 'vuex'
 export default {
-  name: "App",
+  name: 'App',
   mounted() {
-    this.$store.dispatch("srport/initPort");
+    // this.$store.dispatch('srport/initPort')
   },
   methods: {}
-};
+}
 </script>

@@ -16,6 +16,7 @@ const mutations = {
 
 const actions = {
   initPort({ commit, state }) {
+    let _this = this;
     getPort().then(data => {
       commit("GET_PORT", data);
       // 端口错误自动延时重启
@@ -23,17 +24,17 @@ const actions = {
         data.port.on('error', () => {
           state.port = {};
           state.parser = {};
-          setTimeout(() => {
-            initPort();
-          }, 50)
+          // setTimeout(() => {
+          //   this.dispatch('initPort');
+          // }, 50)
         })
 
         data.port.on('close', () => {
           state.port = null;
           state.parser = null;
-          setTimeout(() => {
-            initPort();
-          }, 100)
+          // setTimeout(() => {
+          //   initPort();
+          // }, 100)
         })
       }
     });

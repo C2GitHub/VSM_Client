@@ -2,49 +2,18 @@
   <div class="app-container">
     <el-card class="box-card">
       <div slot="header">
-        <a class="link-type link-title" target="_blank" href="/theme">
-          换肤文档
+        <a class="link-type link-title">
+          主题切换
         </a>
       </div>
       <div class="box-item">
         <span class="field-label">换肤 : </span>
         <el-switch v-model="theme" />
         <aside style="margin-top:15px;">
-          Tips: 两种不同的换肤方法。
+          Tips: 不同的换肤方法。
         </aside>
       </div>
     </el-card>
-
-    <div class="block">
-      <el-button type="primary">
-        Primary
-      </el-button>
-      <el-button type="success">
-        Success
-      </el-button>
-      <el-button type="info">
-        Info
-      </el-button>
-      <el-button type="warning">
-        Warning
-      </el-button>
-      <el-button type="danger">
-        Danger
-      </el-button>
-    </div>
-
-    <div class="block">
-      <el-button type="primary" icon="el-icon-edit" />
-      <el-button type="primary" icon="el-icon-share" />
-      <el-button type="primary" icon="el-icon-delete" />
-      <el-button type="primary" icon="el-icon-search">
-        Search
-      </el-button>
-      <el-button type="primary">
-        Upload
-        <i class="el-icon-upload el-icon-right" />
-      </el-button>
-    </div>
 
     <div class="block">
       <el-tag v-for="tag in tags" :key="tag.type" :type="tag.type" class="tag-item">
@@ -65,11 +34,27 @@
         </el-radio>
       </el-radio-group>
     </div>
-
-    <div class="block">
-      <el-slider v-model="slideValue" />
-    </div>
+    <el-container style="width:100%">
+      <el-row class="sr_status" style="width:100%">
+        <el-card class="box-card" style="width:100%">
+          <div slot="header" class="clearfix">
+            <span>提示</span>
+          </div>
+          <div style="margin-bottom:50px;">
+            <el-col :span="24">
+              <div style="display:inline-block; margin-right: 20px;">
+                <h3>功能开发中...</h3>
+              </div>
+              <router-link class="pan-btn green-btn" to="/">
+                返回主画面
+              </router-link>
+            </el-col>
+          </div>
+        </el-card>
+      </el-row>
+    </el-container>
   </div>
+  
 </template>
 
 <script>
@@ -105,8 +90,7 @@ export default {
   vertical-align: middle;
 }
 .box-card {
-  width: 400px;
-  max-width: 100%;
+  width: 100%;
   /* margin: 20px auto; */
 }
 

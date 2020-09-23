@@ -1,12 +1,21 @@
-import Cookies from 'js-cookie'
+// import Cookies from 'js-cookie'
+import Config from '../../utils/config'
+const fs = window.require('fs')
+const path = window.require('path')
+
+if (!fs.existsSync(path.join(Config.appPath, 'photo'))) {
+  fs.mkdirSync(path.join(Config.appPath, 'photo'))
+}
 
 const state = {
   sidebar: {
-    opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : false,
+    opened: Config.get('sidebarStatus') ? !!Config.get('sidebarStatus') : false,
     withoutAnimation: false
   },
   device: 'desktop',
-  size: Cookies.get('size') || 'medium'
+  size: Config.get('size') || 'medium',
+  triggerCode: Config.get('triggerCode') ? Config.get('triggerCode') : '8888',
+  imgsPath: Config.get('imgsPath') ? Config.get('imgsPath') : path.join(Config.appPath, 'photo')
 }
 
 const mutations = {
@@ -14,13 +23,13 @@ const mutations = {
     state.sidebar.opened = !state.sidebar.opened
     state.sidebar.withoutAnimation = false
     if (state.sidebar.opened) {
-      Cookies.set('sidebarStatus', 1)
+      Config.set('sidebarStatus', 1)
     } else {
-      Cookies.set('sidebarStatus', 0)
+      Config.set('sidebarStatus', 0)
     }
   },
   CLOSE_SIDEBAR: (state, withoutAnimation) => {
-    Cookies.set('sidebarStatus', 0)
+    Config.set('sidebarStatus', 0)
     state.sidebar.opened = false
     state.sidebar.withoutAnimation = withoutAnimation
   },
@@ -29,7 +38,15 @@ const mutations = {
   },
   SET_SIZE: (state, size) => {
     state.size = size
-    Cookies.set('size', size)
+    Config.set('size', size)
+  },
+  SET_TRIGGERCODE: (state, triggerCode) => {
+    state.triggerCode = triggerCode
+    Config.set('triggerCode', triggerCode)
+  },
+  SET_IMGSPATH: (state, imgsPath) => {
+    state.imgsPath = imgsPath
+    Config.set('imgsPath', imgsPath)
   }
 }
 
@@ -45,6 +62,12 @@ const actions = {
   },
   setSize({ commit }, size) {
     commit('SET_SIZE', size)
+  },
+  settriggerCode({ commit }, triggerCode) {
+    commit('SET_TRIGGERCODE', triggerCode)
+  },
+  setImgsPath({ commit }, imgsPath) {
+    commit('SET_IMGSPATH', imgsPath)
   }
 }
 
